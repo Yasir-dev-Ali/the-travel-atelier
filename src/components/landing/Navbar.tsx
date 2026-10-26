@@ -53,10 +53,7 @@ export function Navbar() {
           Meridian <span className="italic text-primary">Travel</span>
         </a>
 
-        <nav
-          aria-label="Primary"
-          className="hidden items-center gap-8 md:flex"
-        >
+        <nav aria-label="Primary" className="hidden items-center gap-8 md:flex">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
@@ -82,9 +79,7 @@ export function Navbar() {
           aria-controls="mobile-menu"
           aria-label={open ? "Close menu" : "Open menu"}
           onClick={() => setOpen((v) => !v)}
-          className={`rounded-sm p-2 md:hidden ${
-            solid ? "text-foreground" : "text-white"
-          }`}
+          className={`rounded-sm p-2 md:hidden ${solid ? "text-foreground" : "text-white"}`}
         >
           {open ? <X className="size-6" /> : <Menu className="size-6" />}
         </button>
@@ -96,10 +91,7 @@ export function Navbar() {
           open ? "max-h-96" : "max-h-0 border-t-0"
         }`}
       >
-        <nav
-          aria-label="Mobile"
-          className="flex flex-col gap-1 px-5 py-4 sm:px-8"
-        >
+        <nav aria-label="Mobile" className="flex flex-col gap-1 px-5 py-4 sm:px-8">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}

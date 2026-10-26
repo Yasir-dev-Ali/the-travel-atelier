@@ -3,7 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import santoriniImage from "@/assets/destination-santorini.jpg";
 import maldivesImage from "@/assets/destination-maldives.jpg";
 import kyotoImage from "@/assets/destination-kyoto.jpg";
-import { useGsapAnimation } from "@/lib/animations";
+import { useGsapAnimation } from "@/hooks/use-gsap-animation";
 
 const DESTINATIONS = [
   {
@@ -98,8 +98,8 @@ export function Destinations() {
             </h2>
           </div>
           <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
-            A glimpse of where an inquiry can lead — every itinerary is built
-            around the season, the pace and the traveler.
+            A glimpse of where an inquiry can lead — every itinerary is built around the season, the
+            pace and the traveler.
           </p>
         </div>
 
@@ -170,9 +170,7 @@ function DestinationOverlay({
         {destination.name}
       </h3>
       {large ? (
-        <p className="mt-3 max-w-md text-sm leading-relaxed text-white/80">
-          {destination.caption}
-        </p>
+        <p className="mt-3 max-w-md text-sm leading-relaxed text-white/80">{destination.caption}</p>
       ) : null}
       <span className="mt-4 inline-flex items-center gap-2 text-xs font-medium tracking-widest text-white uppercase">
         Enquire

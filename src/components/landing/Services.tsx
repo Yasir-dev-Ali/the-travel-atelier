@@ -4,7 +4,7 @@ import visaImage from "@/assets/service-visa.jpg";
 import flightsImage from "@/assets/service-flights.jpg";
 import hotelsImage from "@/assets/service-hotels.jpg";
 import carImage from "@/assets/service-car.jpg";
-import { useGsapAnimation } from "@/lib/animations";
+import { useGsapAnimation } from "@/hooks/use-gsap-animation";
 
 const SERVICES = [
   {
@@ -87,8 +87,8 @@ export function Services() {
             Four services, one seamless journey
           </h2>
           <p className="mt-5 text-base leading-relaxed text-muted-foreground">
-            Each part of your trip handled by the same careful pair of hands —
-            so nothing falls between the gaps.
+            Each part of your trip handled by the same careful pair of hands — so nothing falls
+            between the gaps.
           </p>
         </div>
 

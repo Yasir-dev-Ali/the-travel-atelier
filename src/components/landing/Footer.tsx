@@ -1,4 +1,5 @@
-import { SITE, whatsappUrl } from "@/lib/site";
+import { SITE } from "@/constants/site";
+import { whatsappUrl } from "@/utils/whatsapp";
 
 const EXPLORE_LINKS = [
   { label: "Services", href: "#services" },

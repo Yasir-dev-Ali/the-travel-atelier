@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Plus } from "lucide-react";
-import { useGsapAnimation } from "@/lib/animations";
+import { useGsapAnimation } from "@/hooks/use-gsap-animation";
 
 const FAQS = [
   {

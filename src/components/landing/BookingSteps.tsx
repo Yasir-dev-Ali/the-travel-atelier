@@ -1,4 +1,4 @@
-import { useGsapAnimation } from "@/lib/animations";
+import { useGsapAnimation } from "@/hooks/use-gsap-animation";
 
 const STEPS = [
   {
@@ -55,9 +55,7 @@ export function BookingSteps() {
         <div className="steps-grid mt-16 grid gap-10 lg:mt-20 lg:grid-cols-3 lg:gap-14">
           {STEPS.map((step) => (
             <div key={step.number} className="step-item border-t border-foreground/20 pt-8">
-              <p className="font-display text-5xl font-light text-primary">
-                {step.number}
-              </p>
+              <p className="font-display text-5xl font-light text-primary">{step.number}</p>
               <h3 className="mt-5 font-display text-2xl font-medium text-foreground">
                 {step.title}
               </h3>

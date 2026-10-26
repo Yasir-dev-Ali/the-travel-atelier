@@ -1,5 +1,5 @@
 import { FileCheck2, MapPinned, MessagesSquare, ShieldCheck } from "lucide-react";
-import { useGsapAnimation } from "@/lib/animations";
+import { useGsapAnimation } from "@/hooks/use-gsap-animation";
 
 const BENEFITS = [
   {
@@ -68,8 +68,8 @@ export function WhyChooseUs() {
             The difference is in how it's arranged
           </h2>
           <p className="mt-5 max-w-md text-base leading-relaxed text-muted-foreground">
-            We're a small team that treats your trip like a single, connected
-            piece of work — not a pile of separate bookings.
+            We're a small team that treats your trip like a single, connected piece of work — not a
+            pile of separate bookings.
           </p>
         </div>
 

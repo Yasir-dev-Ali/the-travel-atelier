@@ -1,8 +1,8 @@
 import { MessageCircle } from "lucide-react";
 
 import heroImage from "@/assets/hero-coast.jpg";
-import { whatsappUrl } from "@/lib/site";
-import { useGsapAnimation } from "@/lib/animations";
+import { useGsapAnimation } from "@/hooks/use-gsap-animation";
+import { whatsappUrl } from "@/utils/whatsapp";
 
 export function ContactCta() {
   const rootRef = useGsapAnimation<HTMLElement>(({ gsap }) => {
@@ -56,14 +56,12 @@ export function ContactCta() {
           Where to next?
         </h2>
         <p className="cta-reveal mx-auto mt-6 max-w-xl text-base leading-relaxed text-white/80">
-          Send one message about the trip you have in mind — we'll take it from
-          there, on WhatsApp, at whatever pace suits you.
+          Send one message about the trip you have in mind — we'll take it from there, on WhatsApp,
+          at whatever pace suits you.
         </p>
         <div className="cta-reveal mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <a
-            href={whatsappUrl(
-              "Hello Meridian Travel! I'd like to plan a trip.",
-            )}
+            href={whatsappUrl("Hello Meridian Travel! I'd like to plan a trip.")}
             target="_blank"
             rel="noopener"
             className="inline-flex items-center gap-2.5 rounded-full bg-primary px-8 py-4 text-sm font-medium tracking-wide text-primary-foreground uppercase transition-colors hover:bg-primary/85"

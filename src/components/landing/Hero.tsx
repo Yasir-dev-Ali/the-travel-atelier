@@ -3,14 +3,10 @@ import { useForm } from "react-hook-form";
 import { Check } from "lucide-react";
 
 import heroImage from "@/assets/hero-coast.jpg";
-import {
-  SERVICE_OPTIONS,
-  buildInquiryMessage,
-  inquirySchema,
-  type InquiryInput,
-} from "@/lib/inquiry";
-import { whatsappUrl } from "@/lib/site";
-import { useGsapAnimation } from "@/lib/animations";
+import { SERVICE_OPTIONS, buildInquiryMessage, inquirySchema } from "@/services/inquiry";
+import type { InquiryInput } from "@/types/inquiry";
+import { useGsapAnimation } from "@/hooks/use-gsap-animation";
+import { whatsappUrl } from "@/utils/whatsapp";
 
 const HEADLINE_LINES = ["Journeys composed", "with quiet care."];
 
@@ -30,16 +26,8 @@ export function Hero() {
         duration: 2.4,
         ease: "power2.out",
       })
-        .to(
-          ".hero-line-inner",
-          { yPercent: 0, duration: 1.3, stagger: 0.14 },
-          0.35,
-        )
-        .to(
-          ".hero-fade",
-          { y: 0, opacity: 1, duration: 0.9, stagger: 0.12 },
-          0.9,
-        );
+        .to(".hero-line-inner", { yPercent: 0, duration: 1.3, stagger: 0.14 }, 0.35)
+        .to(".hero-fade", { y: 0, opacity: 1, duration: 0.9, stagger: 0.12 }, 0.9);
 
       gsap.to(".hero-img", {
         yPercent: 8,
@@ -71,7 +59,7 @@ export function Hero() {
     <section
       id="top"
       ref={rootRef as React.RefObject<HTMLElement>}
-      className="hero-root relative isolate flex min-h-svh flex-col justify-end overflow-hidden bg-deep"
+      className="hero-root relative isolate flex min-h-svh flex-col justify-start overflow-hidden bg-deep lg:justify-end"
     >
       <img
         src={heroImage}
@@ -82,11 +70,9 @@ export function Hero() {
       />
       <div className="absolute inset-0 -z-10 bg-gradient-to-t from-deep via-deep/45 to-deep/20" />
 
-      <div className="mx-auto grid w-full max-w-7xl gap-12 px-5 pt-40 pb-16 sm:px-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-end lg:gap-20 lg:pb-24">
+      <div className="mx-auto grid w-full max-w-7xl gap-12 px-5 pt-32 pb-16 sm:px-8 sm:pt-36 lg:grid-cols-[1.15fr_0.85fr] lg:items-end lg:gap-20 lg:pt-40 lg:pb-24">
         <div>
-          <p className="hero-fade eyebrow text-accent">
-            Visas · Flights · Stays · Cars
-          </p>
+          <p className="hero-fade eyebrow text-accent">Visas · Flights · Stays · Cars</p>
           <h1 className="mt-6 font-display text-5xl leading-[1.04] font-light text-white sm:text-6xl lg:text-7xl xl:text-[5.25rem]">
             {HEADLINE_LINES.map((line) => (
               <span key={line} className="block overflow-hidden pb-1">
@@ -95,23 +81,23 @@ export function Hero() {
             ))}
           </h1>
           <p className="hero-fade mt-7 max-w-xl text-base leading-relaxed font-light text-white/85 sm:text-lg">
-            From the first document to the final transfer, every detail of your
-            journey is arranged for you — so all that's left to do is arrive.
+            From the first document to the final transfer, every detail of your journey is arranged
+            for you — so all that's left to do is arrive.
           </p>
         </div>
 
         <div className="hero-fade lg:mb-2">
           <form
+            id="inquiry"
             onSubmit={handleSubmit(onSubmit)}
             aria-label="Travel inquiry"
-            className="rounded-lg bg-card/95 p-6 shadow-2xl backdrop-blur sm:p-8"
+            className="scroll-mt-24 rounded-lg bg-card/95 p-6 shadow-2xl backdrop-blur sm:p-8"
           >
             <h2 className="font-display text-2xl font-medium text-foreground">
               Start your journey
             </h2>
             <p className="mt-2 text-sm text-muted-foreground">
-              Tell us the essentials and we'll continue the conversation on
-              WhatsApp.
+              Tell us the essentials and we'll continue the conversation on WhatsApp.
             </p>
 
             <div className="mt-6 grid gap-5">
@@ -135,10 +121,7 @@ export function Hero() {
                 />
               </Field>
 
-              <Field
-                label="What do you need?"
-                error={errors.service?.message}
-              >
+              <Field label="What do you need?" error={errors.service?.message}>
                 <select
                   className="w-full rounded-sm border border-input bg-transparent px-3 py-2.5 text-sm text-foreground focus:border-ring"
                   {...register("service")}
@@ -185,7 +168,7 @@ function Field({
   children,
 }: {
   label: string;
-  error?: string;
+  error?: string | undefined;
   children: React.ReactNode;
 }) {
   return (
