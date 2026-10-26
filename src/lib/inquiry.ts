@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { SITE } from "./site";
 
 export const SERVICE_OPTIONS = [
   "Visa Assistance",
@@ -38,7 +39,7 @@ export type InquiryInput = z.infer<typeof inquirySchema>;
 
 export function buildInquiryMessage(input: InquiryInput): string {
   const lines = [
-    `Hello ${SITE_BRAND}! I'd like help with ${input.service.toLowerCase()}.`,
+    `Hello ${SITE.name}! I'd like help with ${input.service.toLowerCase()}.`,
     `Destination: ${input.destination}`,
     `Name: ${input.name}`,
     `Email: ${input.email}`,
@@ -46,5 +47,3 @@ export function buildInquiryMessage(input: InquiryInput): string {
   if (input.message) lines.push(`Details: ${input.message}`);
   return lines.join("\n");
 }
-
-const SITE_BRAND = "Meridian Travel";
