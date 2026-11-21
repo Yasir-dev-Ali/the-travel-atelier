@@ -66,7 +66,7 @@ export function Navbar() {
             </a>
           ))}
           <a
-            href="#inquiry"
+            href="#trip-planner"
             className="rounded-full bg-primary px-5 py-2.5 text-[13px] font-medium tracking-wide text-primary-foreground uppercase transition-colors hover:bg-primary/85"
           >
             Plan My Trip
@@ -103,7 +103,7 @@ export function Navbar() {
             </a>
           ))}
           <a
-            href="#inquiry"
+            href="#trip-planner"
             onClick={() => setOpen(false)}
             className="mt-2 rounded-full bg-primary px-5 py-3 text-center text-sm font-medium tracking-wide text-primary-foreground uppercase"
           >
